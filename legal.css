@@ -1,0 +1,15 @@
+@font-face{font-family:'Bricolage Grotesque';font-weight:800;font-display:swap;src:url('fonts/bricolage-800.woff2') format('woff2')}
+@font-face{font-family:'Plus Jakarta Sans';font-weight:500;font-display:swap;src:url('fonts/jakarta-500.woff2') format('woff2')}
+@font-face{font-family:'Plus Jakarta Sans';font-weight:700;font-display:swap;src:url('fonts/jakarta-700.woff2') format('woff2')}
+*{box-sizing:border-box}
+body{margin:0;background:#f3f8f4;color:#0d1a13;font:500 17px/1.6 'Plus Jakarta Sans',system-ui,sans-serif}
+a{color:#0a7f43}a:hover{color:#06351f}
+.legal-head{background:#101713;padding:20px 24px}
+.legal-brand{font:800 24px/1 'Bricolage Grotesque',sans-serif;letter-spacing:-.03em;color:#f3f8f4;text-decoration:none}
+.legal-brand span{color:#13be67}
+.legal{max-width:760px;margin:0 auto;padding:56px 24px 80px}
+.legal h1{font:800 clamp(36px,6vw,56px)/1.05 'Bricolage Grotesque',sans-serif;letter-spacing:-.04em;margin:0 0 32px}
+.legal h2{font-size:20px;font-weight:700;margin:36px 0 8px}
+.legal p{margin:0 0 12px;color:#34443b}
+mark{background:#fff3b0;color:#5a4500;padding:0 4px;border-radius:4px;font-weight:700}
+.legal-back{margin-top:48px}
