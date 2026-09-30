@@ -4,9 +4,17 @@
 *{box-sizing:border-box}
 body{margin:0;background:#f3f8f4;color:#0d1a13;font:500 17px/1.6 'Plus Jakarta Sans',system-ui,sans-serif}
 a{color:#0a7f43}a:hover{color:#06351f}
-.legal-head{background:#101713;padding:20px 24px}
-.legal-brand{font:800 24px/1 'Bricolage Grotesque',sans-serif;letter-spacing:-.03em;color:#f3f8f4;text-decoration:none}
+.legal-head{background:#101713;padding:8px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.legal-brand{display:inline-flex;align-items:center;min-height:44px;font:800 22px/1 'Bricolage Grotesque',sans-serif;letter-spacing:-.03em;color:#f3f8f4;text-decoration:none}
 .legal-brand span{color:#13be67}
+.legal-nav{display:flex;gap:4px 24px;flex-wrap:wrap}
+.legal-nav a,.legal-foot a{display:inline-flex;align-items:center;min-height:44px;font-size:15px;font-weight:700;color:#c9d6cf;text-decoration:none}
+.legal-nav a:hover,.legal-foot a:hover{color:#caff5e}
+.legal-foot{background:#0b110e;padding:20px 24px}
+.legal-foot nav{max-width:760px;margin:0 auto;display:flex;gap:4px 28px;flex-wrap:wrap}
+.legal-foot a{font-weight:600;font-size:14px;color:#b8c7bf}
+:focus-visible{outline:3px solid #0a7f43;outline-offset:3px;border-radius:6px}
+.legal-head :focus-visible,.legal-foot :focus-visible{outline-color:#caff5e}
 .legal{max-width:760px;margin:0 auto;padding:56px 24px 80px}
 .legal h1{font:800 clamp(36px,6vw,56px)/1.05 'Bricolage Grotesque',sans-serif;letter-spacing:-.04em;margin:0 0 32px}
 .legal h2{font-size:20px;font-weight:700;margin:36px 0 8px}

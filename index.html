@@ -34,20 +34,22 @@
   --blue:#1d4fa8; --muted:#566a60; --muted-blue:#4b5d74; --text-blue:#34445a; --rail-blue:#dbe5f1;
   --on-dark:#b8c7bf; --on-dark-2:#9bb0a4; --rule-dark:#2a372f;
   --display:'Bricolage Grotesque',system-ui,sans-serif;
+  /* Hauteur de l'en-tête fixe : sert au décalage des ancres et du haut de page. */
+  --nav-h:72px;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h) + 12px)}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-body{margin:0;background:var(--light);color:var(--ink);font:500 17px/1.55 'Plus Jakarta Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--light);color:var(--ink);font:500 16px/1.55 'Plus Jakarta Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
 h1,h2,h3,p{margin:0}
 a{color:var(--green-deep)}
 :focus-visible{outline:3px solid var(--green-deep);outline-offset:3px;border-radius:6px}
 .dark :focus-visible{outline-color:var(--lime)}
-.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.wrap{max-width:1248px;margin:0 auto;padding:0 24px}
 .skip{position:absolute;left:-9999px;top:8px;z-index:10;background:var(--lime);color:var(--dark);padding:10px 16px;border-radius:999px;font-weight:800}
 .skip:focus{left:12px}
 
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 30px;border-radius:999px;font-weight:800;font-size:17px;text-decoration:none;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 26px;border-radius:999px;font-weight:800;font-size:15px;text-decoration:none;white-space:nowrap}
 .btn--dark{background:var(--dark);color:var(--lime)}
 .btn--dark:hover{background:#26332c;color:var(--lime)}
 .btn--lime{background:var(--lime);color:var(--dark)}
@@ -56,62 +58,62 @@ a{color:var(--green-deep)}
 .btn--ghost:hover{border-color:var(--lime);color:var(--lime)}
 .btn--blue{background:var(--blue);color:#fff}
 .btn--blue:hover{background:#163e85;color:#fff}
-.link-arrow{display:inline-flex;align-items:center;min-height:44px;font-weight:800;color:var(--ink);text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:2px}
+.link-arrow{display:inline-flex;align-items:center;min-height:44px;font-weight:800;font-size:15px;color:var(--ink);text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:2px}
 .link-arrow:hover{color:var(--green-deep)}
-.kicker{display:block;font-size:13px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--green-deep)}
+.kicker{display:block;font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--green-deep)}
 
 /* Écrans de l'app, mis à l'échelle par --s. */
-.phone{--s:.8;width:calc(390px*var(--s));height:calc(844px*var(--s));border-radius:calc(50px*var(--s));overflow:hidden;background:var(--light);flex-shrink:0}
+.phone{--s:.6;width:calc(390px*var(--s));height:calc(844px*var(--s));border-radius:calc(50px*var(--s));overflow:hidden;background:var(--light);flex-shrink:0}
 .phone__screen{width:390px;height:844px;transform:scale(var(--s));transform-origin:0 0}
 
-/* ── En-tête ── */
-.nav{position:absolute;top:0;left:0;right:0;z-index:3}
-.nav .wrap{height:84px;display:flex;align-items:center;justify-content:space-between;gap:24px}
-.brand{display:flex;align-items:center;gap:12px;min-height:44px;text-decoration:none;color:var(--ink);font:800 26px/1 var(--display);letter-spacing:-.03em}
-.brand__ball{width:24px;height:24px;border-radius:50%;background:var(--ink)}
+/* ── En-tête fixe ── */
+.nav{position:sticky;top:0;z-index:5;background:rgba(243,248,244,.88);-webkit-backdrop-filter:saturate(1.4) blur(12px);backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid rgba(13,26,19,.06)}
+.nav .wrap{height:var(--nav-h);display:flex;align-items:center;gap:32px}
+.brand{display:flex;align-items:center;gap:10px;min-height:44px;margin-right:auto;text-decoration:none;color:var(--ink);font:800 22px/1 var(--display);letter-spacing:-.03em}
+.brand__ball{width:20px;height:20px;border-radius:50%;background:var(--ink)}
 .brand b{color:var(--green-mid);font-weight:800}
-.nav__links{display:flex;align-items:center;gap:36px}
-.nav__links a:not(.btn){color:var(--ink);text-decoration:none;font-weight:700;font-size:16px}
-.nav__links a:not(.btn):hover{color:var(--green-deep)}
-.nav .btn{min-height:44px;padding:0 20px;font-size:15px}
+.nav__links{display:flex;align-items:center;gap:28px}
+.nav__links a{display:inline-flex;align-items:center;min-height:44px;color:var(--ink);text-decoration:none;font-weight:700;font-size:15px}
+.nav__links a:hover{color:var(--green-deep)}
+.nav .btn{min-height:44px;padding:0 18px;font-size:14px}
 
 /* ── Accueil : l'affiche ── */
-.hero{position:relative;overflow:hidden}
-.hero .wrap{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:24px;padding-top:156px;padding-bottom:88px}
-.hero__text{display:flex;flex-direction:column;gap:30px;position:relative;z-index:1}
-.eyebrow{display:flex;align-items:center;gap:14px;font-size:13px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--green-deep)}
-.eyebrow::before{content:"";width:44px;height:3px;background:currentColor;flex-shrink:0}
-.hero h1{font:800 clamp(64px,10.4vw,150px)/.88 var(--display);letter-spacing:-.055em}
+.hero{position:relative;overflow:hidden;margin-top:calc(-1 * var(--nav-h))}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:24px;padding-top:calc(var(--nav-h) + 72px);padding-bottom:72px}
+.hero__text{display:flex;flex-direction:column;gap:24px;position:relative;z-index:1}
+.eyebrow{display:flex;align-items:center;gap:12px;font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--green-deep)}
+.eyebrow::before{content:"";width:32px;height:2px;background:currentColor;flex-shrink:0}
+.hero h1{font:800 clamp(52px,6.7vw,96px)/.92 var(--display);letter-spacing:-.05em}
 .hero h1 span{color:var(--green-mid)}
-.hero__lead{font-size:clamp(17px,1.5vw,21px);color:var(--ink-soft);max-width:560px}
-.hero__ctas{display:flex;flex-wrap:wrap;align-items:center;gap:12px 28px}
-.hero__note{font-size:15px;font-weight:600;color:var(--muted)}
-.hero__stage{position:relative;min-height:640px}
-.hero__ball{position:absolute;width:720px;height:720px;right:-268px;top:-306px}
-.hero__stage .phone{position:absolute;box-shadow:0 50px 90px -30px rgba(8,40,24,.6),0 0 0 8px var(--ink)}
-.hero__back{--s:.641;right:142px;top:94px;transform:rotate(7deg)}
-.hero__front{--s:.7692;right:-58px;top:-46px;transform:rotate(-6deg)}
+.hero__lead{font-size:clamp(15px,1.25vw,18px);line-height:1.6;color:var(--ink-soft);max-width:480px}
+.hero__ctas{display:flex;flex-wrap:wrap;align-items:center;gap:10px 24px}
+.hero__note{font-size:13px;font-weight:600;color:var(--muted)}
+.hero__stage{position:relative;min-height:560px}
+.hero__ball{position:absolute;width:520px;height:520px;right:-100px;top:-182px}
+.hero__stage .phone{position:absolute;box-shadow:0 30px 60px -28px rgba(8,40,24,.55),0 0 0 6px var(--ink)}
+.hero__back{--s:.513;right:190px;top:118px;transform:rotate(7deg)}
+.hero__front{--s:.605;right:34px;top:18px;transform:rotate(-6deg)}
 
 /* ── Chiffres ── */
 .scores{background:var(--dark)}
 .scores .wrap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
-.score{display:flex;flex-direction:column;gap:10px;padding:48px 32px;border-left:1px solid var(--rule-dark)}
+.score{display:flex;flex-direction:column;gap:6px;padding:36px 28px;border-left:1px solid var(--rule-dark)}
 .score:first-child{padding-left:0;border-left:0}
 .score:last-child{padding-right:0}
-.score b{font:800 clamp(40px,5.8vw,84px)/1 var(--display);letter-spacing:-.04em;color:var(--lime)}
-.score span{font-size:16px;line-height:1.45;font-weight:600;color:var(--on-dark)}
+.score b{font:800 clamp(32px,3.6vw,52px)/1 var(--display);letter-spacing:-.035em;color:var(--lime)}
+.score span{font-size:14px;line-height:1.45;font-weight:600;color:var(--on-dark)}
 
 /* ── Parcours joueur / coach ── */
-.section{padding:120px 0 128px}
-.head{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:28px 96px;align-items:end;margin-bottom:72px}
-.head h2{font:800 clamp(38px,5.2vw,68px)/.98 var(--display);letter-spacing:-.045em;margin-top:18px}
-.head p{font-size:clamp(16px,1.4vw,19px);line-height:1.6;color:var(--ink-soft)}
-.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,264px);justify-content:space-between;gap:32px}
-.step{display:flex;flex-direction:column;gap:24px;min-width:0}
-.shot{--s:.646;height:400px;border:6px solid var(--ink);border-bottom-width:3px;border-radius:30px 30px 0 0;overflow:hidden;background:var(--light)}
-.step__num{display:block;font:800 40px/1 var(--display);letter-spacing:-.04em;color:var(--green-mid)}
-.step h3{font-size:23px;font-weight:800;letter-spacing:-.02em;margin:8px 0}
-.step p{font-size:16px;line-height:1.6;color:var(--muted)}
+.section{padding:96px 0 104px}
+.head{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:20px 80px;align-items:end;margin-bottom:52px}
+.head h2{font:800 clamp(30px,3.2vw,46px)/1.02 var(--display);letter-spacing:-.035em;margin-top:14px}
+.head p{font-size:clamp(15px,1.2vw,17px);line-height:1.6;color:var(--ink-soft)}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,264px);justify-content:space-between;gap:28px}
+.step{display:flex;flex-direction:column;gap:18px;min-width:0}
+.shot{--s:.651;height:280px;border:5px solid var(--ink);border-bottom-width:2px;border-radius:22px 22px 0 0;overflow:hidden;background:var(--light)}
+.step__num{display:block;font:800 28px/1 var(--display);letter-spacing:-.03em;color:var(--green-mid)}
+.step h3{font-size:18px;font-weight:800;letter-spacing:-.01em;margin:6px 0}
+.step p{font-size:15px;line-height:1.6;color:var(--muted)}
 
 .coachs{background:var(--light-blue);color:var(--ink-blue)}
 .coachs .kicker{color:var(--blue)}
@@ -120,93 +122,103 @@ a{color:var(--green-deep)}
 .coachs .step__num{color:var(--blue)}
 .coachs .step p{color:var(--muted-blue)}
 
-.price{margin-top:72px;background:var(--white);border-radius:28px;padding:40px 48px;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:28px 56px;align-items:center;box-shadow:0 30px 60px -36px rgba(12,21,36,.4)}
-.price__amount{font:800 64px/1 var(--display);letter-spacing:-.04em;margin:6px 0}
-.price__amount small{font:700 18px/1 'Plus Jakarta Sans',sans-serif;letter-spacing:0;color:var(--muted-blue);margin-left:8px}
-.price__fee{font-size:17px;font-weight:700;color:var(--text-blue)}
-.checks{list-style:none;margin:0;padding:0 0 0 56px;display:flex;flex-direction:column;gap:12px;border-left:1.5px solid var(--rail-blue)}
-.checks li{display:flex;gap:12px;align-items:flex-start;font-size:17px;color:var(--text-blue)}
-.checks svg{flex-shrink:0;margin-top:3px}
+.price{margin-top:52px;background:var(--white);border-radius:22px;padding:28px 36px;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:24px 48px;align-items:center;box-shadow:0 24px 50px -34px rgba(12,21,36,.4)}
+.price__amount{font:800 44px/1 var(--display);letter-spacing:-.035em;margin:4px 0}
+.price__amount small{font:700 15px/1 'Plus Jakarta Sans',sans-serif;letter-spacing:0;color:var(--muted-blue);margin-left:6px}
+.price__fee{font-size:15px;font-weight:700;color:var(--text-blue)}
+.checks{list-style:none;margin:0;padding:0 0 0 44px;display:flex;flex-direction:column;gap:8px;border-left:1.5px solid var(--rail-blue)}
+.checks li{display:flex;gap:10px;align-items:flex-start;font-size:15px;color:var(--text-blue)}
+.checks svg{flex-shrink:0;margin-top:2px}
 
 /* ── Questions ── */
-.faq .wrap{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:40px 96px}
-.faq h2{font:800 clamp(38px,4.6vw,60px)/.98 var(--display);letter-spacing:-.045em;margin-top:18px}
-.faq__list{border-bottom:2px solid var(--ink)}
-.faq details{border-top:2px solid var(--ink)}
-.faq summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:24px;min-height:44px;padding:22px 0;cursor:pointer;font-size:clamp(17px,1.6vw,21px);font-weight:800;letter-spacing:-.01em}
+.faq .wrap{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:28px 80px}
+.faq h2{font:800 clamp(30px,2.9vw,42px)/1.02 var(--display);letter-spacing:-.035em;margin-top:14px}
+.faq__list{border-bottom:1.5px solid var(--ink)}
+.faq details{border-top:1.5px solid var(--ink)}
+.faq summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;min-height:44px;padding:14px 0;cursor:pointer;font-size:clamp(15px,1.2vw,17px);font-weight:800}
 .faq summary::-webkit-details-marker{display:none}
 .faq summary svg{flex-shrink:0}
 .faq details[open] .faq__v{display:none}
-.faq details p{max-width:640px;padding-bottom:24px;margin-top:-8px;color:var(--muted)}
+.faq details p{max-width:600px;padding-bottom:18px;margin-top:-4px;font-size:15px;color:var(--muted)}
 
 /* ── Appel final ── */
 .final{background:var(--dark);position:relative;overflow:hidden}
-.final__ball{position:absolute;width:640px;height:640px;left:-170px;top:80px}
-.final .wrap{position:relative;min-height:580px;display:flex;flex-direction:column;justify-content:center}
-.final__body{margin-left:auto;width:min(720px,100%);display:flex;flex-direction:column;gap:24px;padding:80px 0}
-.final h2{font:800 clamp(56px,7.2vw,104px)/.9 var(--display);letter-spacing:-.05em;color:#f3f8f4}
+.final__ball{position:absolute;width:460px;height:460px;left:-110px;top:60px}
+.final .wrap{position:relative;min-height:440px;display:flex;flex-direction:column;justify-content:center}
+.final__body{margin-left:auto;width:min(720px,100%);display:flex;flex-direction:column;gap:18px;padding:64px 0}
+.final h2{font:800 clamp(44px,5vw,72px)/.92 var(--display);letter-spacing:-.045em;color:#f3f8f4}
 .final h2 span{color:var(--lime)}
-.final p{font-size:clamp(17px,1.5vw,21px);color:var(--on-dark)}
-.final__ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:8px}
+.final p{font-size:clamp(15px,1.2vw,17px);color:var(--on-dark)}
+.final__ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
 
-.footer{background:var(--darker);padding:48px 0 56px}
-.footer .wrap{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap}
-.footer .brand{color:#f3f8f4;font-size:24px}
+.footer{background:var(--darker);padding:40px 0 44px}
+.footer .wrap{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap}
+.footer .brand{color:#f3f8f4;font-size:20px;margin-right:0}
 .footer .brand b{color:var(--green)}
-.footer small{display:block;margin-top:10px;font-size:14px;font-weight:600;color:var(--on-dark-2)}
-.footer nav{display:flex;flex-wrap:wrap;gap:8px 28px}
-.footer nav a{display:inline-flex;align-items:center;min-height:44px;color:var(--on-dark);text-decoration:none;font-weight:600;font-size:15px}
+.footer small{display:block;margin-top:8px;font-size:13px;font-weight:600;color:var(--on-dark-2)}
+.footer nav{display:flex;flex-wrap:wrap;gap:4px 28px}
+.footer nav a{display:inline-flex;align-items:center;min-height:44px;color:var(--on-dark);text-decoration:none;font-weight:600;font-size:14px}
 .footer nav a:hover{color:var(--lime)}
 
 /* Sous 1200 px, les quatre étapes défilent horizontalement (sans script). */
 @media (max-width:1199px){
-  .steps{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -24px;padding:0 24px 20px;scroll-padding:0 24px}
+  .steps{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -24px;padding:0 24px 18px;scroll-padding:0 24px}
   .step{flex:0 0 264px;scroll-snap-align:start}
-  .shot{height:340px}
+  .shot{height:300px}
 }
 @media (max-width:960px){
-  .hero .wrap{grid-template-columns:1fr;padding-top:124px;padding-bottom:0;gap:8px}
-  .hero__stage{min-height:0;height:560px;overflow:hidden;margin:0 -24px}
-  .hero__ball{width:430px;height:430px;left:50%;right:auto;margin-left:-215px;top:50px}
-  .hero__back{--s:.6;left:50%;right:auto;margin-left:-30px;top:120px}
-  .hero__front{--s:.667;left:50%;right:auto;margin-left:-196px;top:40px}
+  .hero .wrap{grid-template-columns:1fr;padding-top:calc(var(--nav-h) + 48px);padding-bottom:0;gap:8px}
+  .hero__stage{min-height:0;height:470px;overflow:hidden;margin:0 -24px}
+  .hero__ball{width:360px;height:360px;left:50%;right:auto;margin-left:-180px;top:40px}
+  .hero__back{--s:.5;left:50%;right:auto;margin-left:-14px;top:96px}
+  .hero__front{--s:.56;left:50%;right:auto;margin-left:-170px;top:32px}
   .scores .wrap{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .score{padding:28px 20px}
+  .score{padding:22px 16px}
   .score:nth-child(odd){padding-left:0;border-left:0}
   .score:nth-child(even){padding-right:0}
   .score:nth-child(-n+2){border-bottom:1px solid var(--rule-dark)}
-  .head{grid-template-columns:1fr;margin-bottom:40px}
-  .price{grid-template-columns:1fr;padding:32px 28px}
-  .checks{padding:22px 0 0;border-left:0;border-top:1.5px solid var(--rail-blue)}
+  .head{grid-template-columns:1fr;margin-bottom:32px}
+  .price{grid-template-columns:1fr;padding:28px 24px}
+  .checks{padding:16px 0 0;border-left:0;border-top:1.5px solid var(--rail-blue)}
   .price .btn{width:100%}
   .faq .wrap{grid-template-columns:1fr}
-  .final__ball{width:290px;height:290px;left:auto;right:-40px;top:-110px}
-  .final__body{margin-left:0;padding:200px 0 64px}
+  .final__ball{width:260px;height:260px;left:auto;right:-30px;top:-100px}
+  .final__body{margin-left:0;padding:170px 0 56px}
 }
+/* Mobile : les liens de navigation passent sur une seconde ligne de l'en-tête,
+   toujours visibles et joignables au pouce. */
 @media (max-width:640px){
-  .nav .wrap{height:68px}
-  .nav__links a:not(.btn){display:none}
-  .nav .btn{padding:0 16px;font-size:14px}
-  .brand{font-size:23px}
-  .hero .wrap{padding-top:96px}
-  .hero__text{gap:22px}
-  .eyebrow{font-size:12px;letter-spacing:.14em}
-  .eyebrow::before{width:32px}
-  .hero__ctas{flex-direction:column;align-items:stretch;gap:12px}
+  :root{--nav-h:104px}
+  .nav .wrap{height:auto;flex-wrap:wrap;gap:0 12px;padding-top:8px}
+  .brand{font-size:20px;min-height:44px}
+  .brand__ball{width:18px;height:18px}
+  .nav .btn{min-height:44px;padding:0 14px;font-size:13px}
+  .nav__links{order:3;width:100%;justify-content:space-between;gap:0;border-top:1px solid rgba(13,26,19,.06)}
+  .nav__links a{font-size:14px;padding:0 4px}
+  .hero .wrap{padding-top:calc(var(--nav-h) + 24px)}
+  .hero__text{gap:16px}
+  .eyebrow{font-size:11px;letter-spacing:.14em}
+  .eyebrow::before{width:24px}
+  .hero__ctas{flex-direction:column;align-items:stretch;gap:6px}
   .hero__ctas .btn{width:100%}
   .hero__ctas .link-arrow{align-self:center}
-  .hero__stage{height:430px}
-  .hero__ball{width:330px;height:330px;margin-left:-165px;top:40px}
-  .hero__back{--s:.4615;margin-left:-23px;top:92px}
-  .hero__front{--s:.5128;margin-left:-151px;top:32px}
-  .hero__stage .phone{box-shadow:0 34px 60px -24px rgba(8,40,24,.6),0 0 0 6px var(--ink)}
-  .score span{font-size:14px}
-  .section{padding:64px 0}
-  .shot{height:330px}
-  .step h3{font-size:20px}
-  .step p{font-size:15px}
-  .price{margin-top:40px;padding:28px 24px}
-  .price__amount{font-size:52px}
+  .hero__stage{height:340px}
+  .hero__ball{width:260px;height:260px;margin-left:-130px;top:30px}
+  .hero__back{--s:.3846;margin-left:-10px;top:70px}
+  .hero__front{--s:.4308;margin-left:-125px;top:26px}
+  .hero__stage .phone{box-shadow:0 26px 50px -24px rgba(8,40,24,.6),0 0 0 5px var(--ink)}
+  .score{padding:18px 14px}
+  .score span{font-size:13px}
+  .section{padding:52px 0}
+  .head{margin-bottom:24px}
+  .step{flex-basis:236px}
+  .shot{--s:.585;height:250px;border-width:4px 4px 2px}
+  .step__num{font-size:24px}
+  .step h3{font-size:16px}
+  .step p{font-size:14px}
+  .price{margin-top:28px;padding:22px 20px}
+  .price__amount{font-size:38px}
+  .faq details p{font-size:14px}
   .final__ctas{flex-direction:column}
   .final__ctas .btn{width:100%}
   .footer .wrap{flex-direction:column}
@@ -218,13 +230,13 @@ a{color:var(--green-deep)}
 
 <header class="nav">
 <div class="wrap">
-<a class="brand" href="#top" aria-label="PadelCoach, accueil"><span class="brand__ball"></span><span>Padel<b>Coach</b></span></a>
+<a class="brand" href="#top" aria-label="PadelCoach, haut de page"><span class="brand__ball"></span><span>Padel<b>Coach</b></span></a>
 <nav class="nav__links" aria-label="Navigation principale">
 <a href="#joueurs">Joueurs</a>
 <a href="#coachs">Coachs</a>
 <a href="#faq">Questions</a>
-<a class="btn btn--dark" href="#telecharger">Bientôt dispo</a>
 </nav>
+<a class="btn btn--dark" href="#telecharger">Bientôt dispo</a>
 </div>
 </header>
 
@@ -510,10 +522,10 @@ a{color:var(--green-deep)}
 
 <section class="scores dark" aria-label="Les chiffres clés">
 <div class="wrap">
-<p class="score"><b>24 h</b><span>pour annuler gratuitement, remboursement intégral</span></p>
+<p class="score"><b>24 h</b><span>pour annuler gratuitement</span></p>
 <p class="score"><b>0 €</b><span>de frais ajoutés côté joueur</span></p>
-<p class="score"><b>100 %</b><span>des coachs avec une licence padel valide</span></p>
-<p class="score"><b>9,90 €</b><span>par mois pour les coachs, + 10 % par séance</span></p>
+<p class="score"><b>100 %</b><span>des coachs avec une licence valide</span></p>
+<p class="score"><b>9,90 €</b><span>par mois pour les coachs, + 10 %</span></p>
 </div>
 </section>
 
@@ -975,7 +987,7 @@ a{color:var(--green-deep)}
     </div>
   </div>
 </div></div></div>
-<div><span class="step__num">03</span><h3>Réservez et payez</h3><p>Paiement sécurisé par carte au moment de réserver, confirmation immédiate et rappel la veille de la séance. Annulation gratuite jusqu’à 24 h avant.</p></div>
+<div><span class="step__num">03</span><h3>Réservez et payez</h3><p>Paiement sécurisé par carte au moment de réserver, confirmation immédiate et rappel la veille. Annulation gratuite jusqu’à 24 h avant.</p></div>
 </li>
 <li class="step">
 <div class="shot" role="img" aria-label="L’écran de notation : le joueur note le coach après la séance."><div class="phone__screen" aria-hidden="true"><div data-screen-label="08 · Notation coach" style="width:390px;height:844px;margin:0 auto;background:#f3f8f4;font-family:'Plus Jakarta Sans',sans-serif;color:#0d1a13;display:flex;flex-direction:column;overflow:hidden;position:relative">
@@ -1567,18 +1579,18 @@ a{color:var(--green-deep)}
     </span>
   </div>
 </div></div></div>
-<div><span class="step__num">04</span><h3>Suivez vos revenus</h3><p>Chaque séance vous est reversée, moins 10 % de commission, et suivie dans vos revenus. Cinq séances réalisées vous valent le badge « Vérifié ».</p></div>
+<div><span class="step__num">04</span><h3>Suivez vos revenus</h3><p>Après chaque séance, sa part vous est versée, moins 10 % de commission. Cinq séances réalisées vous valent le badge « Vérifié ».</p></div>
 </li>
 </ol>
 <div class="price">
 <div>
 <span class="kicker">Un tarif simple</span>
 <p class="price__amount">9,90 €<small>/ mois</small></p>
-<p class="price__fee">+ 10 % de commission par séance réservée</p>
+<p class="price__fee">+ 10 % par séance réservée</p>
 </div>
 <ul class="checks">
-<li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1d4fa8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg><span>Aucun frais pour vos joueurs : ils paient votre tarif, rien de plus.</span></li>
-<li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1d4fa8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg><span>Licence padel en cours de validité requise pour publier.</span></li>
+<li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1d4fa8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg><span>Aucun frais pour vos joueurs : ils paient votre tarif, rien de plus.</span></li>
+<li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1d4fa8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg><span>Licence padel en cours de validité requise pour publier.</span></li>
 </ul>
 <a class="btn btn--blue" href="#telecharger">Devenir coach</a>
 </div>
@@ -1589,12 +1601,12 @@ a{color:var(--green-deep)}
 <div class="wrap">
 <div><span class="kicker">Questions</span><h2>Vos questions, nos réponses.</h2></div>
 <div class="faq__list">
-<details open><summary>Combien coûte une séance ?<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/><path class="faq__v" d="M12 5v14"/></svg></summary><p>Chaque coach fixe son tarif, affiché avant la réservation. Aucun frais n’est ajouté côté joueur.</p></details>
-<details><summary>Et si j’annule ?<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/><path class="faq__v" d="M12 5v14"/></svg></summary><p>Remboursement intégral jusqu’à 24 h avant la séance. Passé ce délai, la séance reste due au coach.</p></details>
-<details><summary>Comment les coachs sont-ils vérifiés ?<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/><path class="faq__v" d="M12 5v14"/></svg></summary><p>Une licence padel en cours de validité est obligatoire pour publier. Le badge « Vérifié » s’obtient après cinq séances réalisées.</p></details>
-<details><summary>Puis-je échanger avec mon coach ?<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/><path class="faq__v" d="M12 5v14"/></svg></summary><p>Oui. Chaque réservation ouvre un fil de discussion avec le coach et les joueurs de la séance, jusqu’à sept jours après.</p></details>
-<details><summary>Je suis coach : combien ça coûte ?<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/><path class="faq__v" d="M12 5v14"/></svg></summary><p>9,90 € par mois, plus 10 % de commission sur chaque séance réservée. Le reste du prix de la séance vous est reversé.</p></details>
-<details><summary>Quand l’app sera-t-elle disponible ?<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/><path class="faq__v" d="M12 5v14"/></svg></summary><p>Elle arrive bientôt sur iOS et Android. Cette page affichera les liens de téléchargement dès sa sortie.</p></details>
+<details open><summary>Combien coûte une séance ?<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/><path class="faq__v" d="M12 5v14"/></svg></summary><p>Chaque coach fixe son tarif, affiché avant la réservation. Aucun frais n’est ajouté côté joueur.</p></details>
+<details><summary>Et si j’annule ?<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/><path class="faq__v" d="M12 5v14"/></svg></summary><p>Remboursement intégral jusqu’à 24 h avant la séance. Passé ce délai, la séance reste due au coach.</p></details>
+<details><summary>Comment les coachs sont-ils vérifiés ?<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/><path class="faq__v" d="M12 5v14"/></svg></summary><p>Une licence padel en cours de validité est obligatoire pour publier. Le badge « Vérifié » s’obtient après cinq séances réalisées.</p></details>
+<details><summary>Puis-je échanger avec mon coach ?<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/><path class="faq__v" d="M12 5v14"/></svg></summary><p>Oui. Chaque réservation ouvre un fil de discussion avec le coach et les joueurs de la séance, jusqu’à sept jours après.</p></details>
+<details><summary>Je suis coach : combien ça coûte ?<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/><path class="faq__v" d="M12 5v14"/></svg></summary><p>9,90 € par mois, plus 10 % de commission sur chaque séance réservée. Le reste du prix vous est versé après la séance.</p></details>
+<details><summary>Quand l’app sera-t-elle disponible ?<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/><path class="faq__v" d="M12 5v14"/></svg></summary><p>Elle arrive bientôt sur iOS et Android. Cette page affichera les liens de téléchargement dès sa sortie.</p></details>
 </div>
 </div>
 </section>
