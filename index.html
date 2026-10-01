@@ -271,9 +271,15 @@ html.js[data-audience="coach"] [data-for="joueur"]{display:none}
   .switch > span{display:none}
   .seg button{padding:0 16px}
   .switchbar__cta{font-size:13px}
-  .side{min-height:470px}
-  .side__panel{padding:20px 20px 22px}
-  .side__promise{font-size:15px}
+  /* Les deux côtés tiennent dans le premier écran du téléphone. */
+  .side{min-height:300px;height:calc((100vh - var(--nav-h)) / 2);height:calc((100svh - var(--nav-h)) / 2);padding:12px}
+  .side--joueur img{object-position:center 30%}
+  .side__panel{padding:14px 16px 16px;gap:6px;border-radius:16px}
+  .side__kicker{font-size:11px}
+  .side__word{font-size:38px}
+  .side__promise{font-size:14px;line-height:1.4}
+  .side__cta{margin-top:4px;min-height:44px;padding:0 16px;font-size:14px}
+  .net__ball{width:30px;height:30px;margin-top:-15px;margin-left:-15px}
   .section{padding:60px 0}
   .lead{font-size:16px}
   .steps{grid-template-columns:1fr}
